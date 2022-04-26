@@ -7,13 +7,12 @@ const multiply = (a, b) => a * b;
 const divide = (a, b) => a / b;
 
 
-const log = value=>  console.log(value);
+const log = value => console.log(value);
+/* sum(2, 4)
+sum(5, 2)
+subtract(multiply(), 2)
+divide(subtract(), 5)
+multiply(sum(), sum())
+log(divide()); */
 
-sum(2,4)
-sum(5,2)
-subtract(multiply(),2)
-divide(subtract(),5)
-multiply(sum(),sum())
-log(divide());
-
-console.log(divide())
+log(divide((subtract(multiply(sum(2, 4), sum(5, 2)), 2)), 5));

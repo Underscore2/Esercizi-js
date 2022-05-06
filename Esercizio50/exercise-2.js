@@ -10,11 +10,12 @@ class Person {
     return JSON.stringify(this);
   }
 
-  static fromJson(param) {
+  fromJson(param) {
     return JSON.parse(param);
   }
 }
 
-const json = '{"id":1,"firstName":"Mario","lastName":"Rossi","age":25}';
-const developer = Person.fromJson(json);
-console.log(developer);
+const json = new Person(1, "Mario", "Rossi", 25);
+let developer = json.toJson();
+developer = json.fromJson(developer);
+console.log(developer)

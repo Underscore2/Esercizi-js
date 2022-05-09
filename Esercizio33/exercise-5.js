@@ -1,39 +1,13 @@
 function firstUncompletedNote(notes) {
-  const arr = [];
   return notes.find((item) => {
 
-    item.todos.find((object2) => {
+    return item.todos.find((object2) => {
       return object2.done === false;
     });
 
   });
 
 }
-
-
-
-
-
-
-
-
-/*  let value = []; */
-/* for (let item of notes) {
-
-  item.todos.find(element => {
-
-    if (element.done === false) {
-      value.push(element);
-      return value;
-    }
-
-  });
-
-} */
-/*   return value; *//*   notes.forEach(element => {
-      console.log(element)
-    }); */
-
 
 const notes = [
   {

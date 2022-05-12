@@ -1,0 +1,35 @@
+<html>
+
+<body>
+  <div id="container">
+    <ul class="todo-list"></ul>
+  </div>
+</body>
+
+
+</html>
+
+<script>
+
+  async function blabla() {
+    let package;
+    await fetch('https://jsonplaceholder.typicode.com/todos')
+      .then((req) => {
+        return req.json()
+      }).then((pack) => {
+        package = pack;
+        console.log(package.length)
+        return console.log(package)
+      })
+
+
+    package.forEach(element => {
+      console.log(element.title)
+      let newLiNode = document.createElement('li');
+      newLiNode.innerText = element.title
+      document.querySelector('.todo-list').appendChild(newLiNode);
+    });
+  }
+
+  blabla()
+</script>

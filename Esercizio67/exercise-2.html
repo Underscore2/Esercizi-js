@@ -1,0 +1,38 @@
+<html>
+
+<body>
+  <div id="container" style="display: flex; align-items: center;"></div>
+</body>
+
+</html>
+
+<script>
+  async function blabla() {
+    const giorgio = await fetch('https://jsonplaceholder.typicode.com/todos/4')
+      .then((req) => {
+        return req.json()
+      }).then((pack) => {
+        return pack;
+      })
+    console.log(giorgio)
+
+
+    if (giorgio.title) {
+      console.log(giorgio.title)
+      let newH2 = document.createElement('h2');
+      newH2.innerText = (giorgio.title)
+      document.querySelector('#container').appendChild(newH2)
+    }
+
+    let newBox = document.createElement('input');
+
+    newBox.setAttribute('type', 'checkbox');
+    if (giorgio.completed === true) {
+      newBox.setAttribute('checked', 'true');
+    }
+    document.querySelector('#container').appendChild(newBox)
+
+  }
+
+  blabla()
+</script>

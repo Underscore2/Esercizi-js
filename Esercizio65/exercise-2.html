@@ -14,10 +14,9 @@
 
 <script>
   document.querySelector('#fetch-post').addEventListener('click', (e) => {
-
-    document.querySelector('#post-title').innerText = localStorage.getItem('title');
-
-
+    let postobj = localStorage.getItem('key');
+    postobj = JSON.parse(postobj)
+    document.querySelector('#post-title').innerText = postobj.title;
 
   })
 </script>

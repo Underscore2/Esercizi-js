@@ -33,48 +33,40 @@ const jobs = [
     jobTitle: 'Developer'
   }
 ];
-fetchPersonById = function (id) {
-  setTimeout(() => {
-    return new Promise((resolve, reject) => {
-      const person = persons.find((item) => item.id == id);
+
+function fetchPersonById(id) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const person = persons.find(item => item.id === id);
+
       if (person) {
-        resolve(person)
+        return resolve(JSON.stringify(person));
       }
-      else {
-        reject(new Error("GNA"))
-      }
-    }
-    )
-  }, 1500)
+
+      return reject(`Person with id: ${id} doesn't exist`);
+    }, 1000);
+  });
 }
-fetchJobById = function (id) {
-  setTimeout(() => {
-    return new Promise((resolve, reject) => {
-      const job = jobs.find((item) => item.id == id);
+
+function fetchJobById(id) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const job = jobs.find(item => item.id === id);
+
       if (job) {
-        resolve(job)
+        return resolve(JSON.stringify(job));
       }
-      else {
-        reject(new Error("GNA"))
-      }
-    }
-    )
-  }, 1500)
+
+      return reject(`job with id: ${id} doesn't exist`);
+    }, 1000);
+  });
 }
-Promise.all(
-  [
 
 
-    fetchPersonById(2),
+Promise.all([
 
+  fetchPersonById(2),
+  fetchJobById(3),
 
-    fetchJobById(2)
-
-
-
-  ]
-
-
-).then((resolve) => console.log(resolve)
-).catch((error) => console.log(error.message))
-// core here
+]).then((resolve) => { console.log(resolve) })
+  .catch((error) => { console.log(error) })

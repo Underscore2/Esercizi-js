@@ -1,0 +1,97 @@
+<html>
+
+<body>
+  <div id="container">
+    <h2>Person's Form</h2>
+    <form id="person-form">
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</body>
+
+
+
+<script>
+
+
+  /*  let form = document.querySelector('form');
+   let label = document.createElement('label');
+ 
+   form.append(label);
+   label.innerHTML = `
+   
+   <input type='text' required class='prova1' placeholder='Username'>
+   <input type='text' required class='prova2' placeholder='Cogname'>
+   <input type='num' required class='prova3' placeholder='Age'>
+ 
+   
+   `
+  */
+
+
+
+
+
+
+
+
+  window.addEventListener('load', initForm)
+
+
+  class Person {
+    constructor(username, cogname, age) {
+      this.username = username;
+      this.cogname = cogname;
+      this.age = age;
+    }
+  }
+
+
+
+  function initForm() {
+
+    let form = document.querySelector('form');
+    let label = document.createElement('label');
+    let inputName = document.createElement('input');
+    let inputCogname = document.createElement('input');
+    let inputAge = document.createElement('input');
+
+    inputName.setAttribute('placeholder', 'Username');
+    inputCogname.setAttribute('placeholder', 'User Cogname');
+    inputAge.setAttribute('placeholder', 'User age');
+
+    inputName.setAttribute('required', 'true');
+    inputCogname.setAttribute('required', 'true');
+    inputAge.setAttribute('required', 'true');
+
+    inputName.setAttribute('type', 'text');
+    inputCogname.setAttribute('type', 'text');
+    inputAge.setAttribute('type', 'num');
+
+    form.prepend(label);
+    label.append(inputName);
+    label.append(inputCogname);
+    label.append(inputAge);
+
+
+
+
+    let btn = document.querySelector('button');
+
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+
+
+      let persona = new Person(inputName.value, inputCogname.value, inputAge.value)
+      console.log(persona)
+
+    })
+
+
+  }
+
+
+
+</script>
+
+</html>
